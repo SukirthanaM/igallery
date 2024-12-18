@@ -32,23 +32,19 @@ Publish the website in the given URL.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Photo Gallery</title>
     <style>
-        body
-         {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
-            background-color: #b64bb9;
+            background-color:#b64bb9;
         }
 
-        h1 
-        {
+        h1 {
             margin-top: 20px;
         }
 
-        .gallery 
-        
-        {
+        .gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -56,26 +52,53 @@ Publish the website in the given URL.
             padding: 20px;
         }
 
-        .gallery img 
-        {
-            width: 300px;
-            height: 200px;
-            border: 2px solid #050000;
-            border-radius: 12px;
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .gallery img:hover 
-        {
+        .gallery img:hover {
             transform: scale(1.1);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 4px solid white;
+            border-radius: 10px;
+        }
+
+        .modal span {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <h1><i>Interactive Photo Gallery</i></h1>
+    <h1>Interactive Photo Gallery</h1>
     <div class="gallery">
         <img src="travel1.jpg" alt="Image 1">
         <img src="travel2.jpg" alt="Image 2">
@@ -91,15 +114,34 @@ Publish the website in the given URL.
         <img src="travel13.jpg" alt="Image 12">
         <img src="travel14.jpg" alt="Image 13">
         <img src="travel15.jpg" alt="Image 14">
+
     </div>
-    <footer class="bg-secondary text-white text-center py-3">
-        <p>&copy 2024 Designed and Developed by Sukirthana</p>
-    </footer>
+
+    
+    <div class="modal" id="imageModal">
+        <span onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="">
+    </div>
+
+    <script>
+        
+        function openModal(image) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = image.src;
+        }
+
+        
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
 ```
 ## OUTPUT:
-![alt text](<Screenshot (40).png>)
-![alt text](<Screenshot (41).png>)
+![alt text](<Screenshot (42).png>)
 ## RESULT:
 The program for designing an interactive image gallery using HTML, CSS and JavaScript is executed successfully.
